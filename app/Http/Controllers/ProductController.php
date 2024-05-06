@@ -12,7 +12,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        
+        return view('products', [
+            'products' => Product::all(), 
+        ]);
     }
 
     /**
@@ -34,7 +36,7 @@ class ProductController extends Controller
         $product->passport = 'passport';
         
         $product->save();
-
+        return redirect('products');
     }
 
     /**
@@ -42,7 +44,9 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('singleproduct', [
+            'product' => Product::find($id), 
+        ]);
     }
 
     /**
@@ -66,6 +70,6 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        dd();
     }
 }
