@@ -3,8 +3,12 @@
         <h2>Наименование товара: <br/> {{ $product->title }}</h2>
         <h2>Описание товара: <br/> {{ $product->description }}</h2>
         <div style="width: -webkit-fill-available; display: flex; flex-direction: column;">
-            <x-responsive-nav-link :href="route('products.destroy', $product->id)" :active="request()->routeIs('products.destroy', $product->id)"> 
-                {{ __('Удалить') }}
+            <x-responsive-nav-link> 
+                <form method="POST" action="{{route('products.destroy', $product->id)}}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">{{ __('Удалить') }}</button>
+                </form>
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('products.edit', $product->id)" :active="request()->routeIs('products.edit', $product->id)"> 
