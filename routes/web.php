@@ -22,4 +22,7 @@ Route::resources([
     'products' => ProductController::class,
 ]);
 
+Route::fallback(function(){
+return ['message' => 'дорогой дневник, мне не подобрать слов чтобы описать боль и унижение которые я испытал сегодня, моя жизнь поломана навсегда... я не нашел в шкафу нарнию.. но зато нашел сраницу 404..'];
+});
 require __DIR__.'/auth.php';
