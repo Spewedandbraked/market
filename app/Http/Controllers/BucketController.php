@@ -11,15 +11,15 @@ class BucketController extends Controller
     public function index($id)
     {
         $order = Order::firstOrCreate(['customer' =>  $id],['track' => uuid_create()]);
-        return view('bucket',[
+        return view('bucket',[                                                                                                                                                                                                                                                                                                                                               //история: однажды студентишку потянуло в романтику и потом он восемь месяцев (а возможно и больше(покажет время)) в лютом угаре прибывал. мораль - надо было учиться и относиться ко всем одинаково плохо, а не делать исключения и нарываться на приключения. никогда в жизни я больше не повторю произошедшего. один раз подпустишь человека к себе близко - потом всех остальных возненавидишь на остаток времен (в данном случае на два курса обучения, благо я больше не увижу никого из них). доманипулировался, доигрался. виноват сам и ничего не поделать 
             'orderedprods' => orderedprod::all(), 
             'orders' => Order::all(),
         ]);
     }
-    public function add($prodId, $userId){
-
+    public function add($Userid, $Postid){
+        dd($Postid, $Userid);
     }
-    public function remove($prodId, $userId){
+    public function remove($Userid, $Postid){
 
     }
 }

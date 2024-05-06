@@ -12,9 +12,15 @@
         <div style="display: flex; width: fit-content; flex-direction: column; margin:4px; background-color:gainsboro;">
             <h2>Наименование товара: <br/> {{ $product->title }}</h2>
             <h2>Описание товара: <br/> {{ $product->description }}</h2>
+            <form action="{{route('bucket.add',['Postid' =>$product->id, 'Userid' => Auth::user()->id])}}" method="post">
+                @csrf
+                <x-primary-button>
+                    мда
+                </x-primary-button>
+            </form>
             <div style="width: -webkit-fill-available; display: flex; flex-direction: column;">
                 <x-dropdown>
-                    <x-slot name="trigger"><label style="background-color: white">Опции:</label></x-slot>
+                    <x-slot name="trigger"><label style="background-color: white"><x-secondary-button>Опции:</x-secondary-button></label></x-slot>
                     <x-slot name="content">
                         <label>
                             <x-responsive-nav-link :href="route('products.edit', $product->id)"> 
