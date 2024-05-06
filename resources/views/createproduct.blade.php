@@ -1,5 +1,5 @@
 <x-app-layout>
-    <form action="/products" method="POST">
+    <form action="{{route('products.store')}}" method="POST">
         @csrf
         <h1>Создать продукт</h1>
         <div class="form-group">

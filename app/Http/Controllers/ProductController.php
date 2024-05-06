@@ -30,13 +30,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product;
-        $product->title = $request->input('title');
-        $product->description = $request->input('description');
-        $product->passport = 'passport';
-        
-        $product->save();
-        return redirect('products');
     }
 
     /**
@@ -54,7 +47,9 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('editproduct', [
+            'product' => Product::find($id), 
+        ]);
     }
 
     /**
@@ -62,7 +57,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Product::find($id);
+        $product->title = $request->input('title');
+        $product->description = $request->input('description');
+        $product->passport = 'passport';
+        
+        $product->save();
+        return redirect('products');
     }
 
     /**
