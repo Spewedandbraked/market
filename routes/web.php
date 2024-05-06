@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BucketController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,11 @@ Route::middleware('auth')->group(function () {
 Route::resources([
     'products' => ProductController::class,
 ]);
+
+Route::controller(BucketController::class)->group(function () {
+    Route::get('/bucket', 'index')->name('bucket.index');
+    /* Route::post('/orders'); */
+});
 
 Route::fallback(function(){
 return ['message' => 'дорогой дневник, мне не подобрать слов чтобы описать боль и унижение которые я испытал сегодня, моя жизнь поломана навсегда... я не нашел в шкафу нарнию.. но зато нашел сраницу 404..'];
