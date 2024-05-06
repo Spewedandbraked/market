@@ -17,7 +17,13 @@ class BucketController extends Controller
         ]);
     }
     public function add($Userid, $Postid){
-        dd($Postid, $Userid);
+        $orderedprod = new orderedprod;
+        $orderedprod->product_id = $Postid;
+        $temp = Order::firstOrCreate(['customer' =>  $Userid],['track' => uuid_create()]);
+        $orderedprod->order_id = $temp->id;
+
+        $orderedprod->save();
+        return redirect('products');
     }
     public function remove($Userid, $Postid){
 
