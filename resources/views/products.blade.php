@@ -17,15 +17,15 @@
                     <x-slot name="trigger"><label style="background-color: white">Опции:</label></x-slot>
                     <x-slot name="content">
                         <label>
-                            <x-responsive-nav-link :href="route('products.edit', $product->id)" :active="request()->routeIs('products.edit', $product->id)"> 
+                            <x-responsive-nav-link :href="route('products.edit', $product->id)"> 
                                 {{ __('Редактировать') }}
                             </x-responsive-nav-link>
                         
-                            <x-responsive-nav-link :href="route('products.create')" :active="request()->routeIs('products.create')"> 
+                            <x-responsive-nav-link :href="route('products.create')"> 
                                 {{ __('Купить') }}
                             </x-responsive-nav-link>
                         
-                            <x-responsive-nav-link :href="route('products.show', $product->id)" :active="request()->routeIs('products.show', $product->id)"> 
+                            <x-responsive-nav-link :href="route('products.show', $product->id)"> 
                                 {{ __('Посмотреть') }}
                             </x-responsive-nav-link>
                         </label>

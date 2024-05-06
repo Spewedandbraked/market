@@ -24,7 +24,9 @@ Route::resources([
 ]);
 
 Route::controller(BucketController::class)->group(function () {
-    Route::get('/bucket', 'index')->name('bucket.index');
+    Route::get('/bucket/{id}', 'index')->name('bucket.index');
+    Route::post('/bucket/{id}', 'index')->name('bucket.add');
+    Route::delete('/bucket/{id}', 'index')->name('bucket.remove');
     /* Route::post('/orders'); */
 });
 

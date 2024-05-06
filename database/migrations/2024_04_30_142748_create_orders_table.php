@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Ramsey\Uuid\Uuid;
 
 return new class extends Migration
 {
@@ -16,9 +17,10 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id()->foreign('orderedprod.order_id');
             $table->uuid('track');
-            $table->unsignedBigInteger('bucket_id');
             $table->unsignedBigInteger('customer');
             $table->foreign('customer')->references('id')->on('users');
+
+            $table->timestamps();
         });
 
         Schema::enableForeignKeyConstraints();
