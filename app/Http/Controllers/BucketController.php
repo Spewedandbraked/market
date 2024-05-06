@@ -12,7 +12,8 @@ class BucketController extends Controller
     {
         $order = Order::firstOrCreate(['customer' =>  $id],['track' => uuid_create()]);
         return view('bucket',[
-            'products' => orderedprod::all(), 
+            'orderedprods' => orderedprod::all(), 
+            'orders' => Order::all(),
         ]);
     }
     public function add($prodId, $userId){
