@@ -15,7 +15,7 @@
             <form action="{{route('bucket.add',['Postid' =>$product->id, 'Userid' => Auth::user()->id])}}" method="post">
                 @csrf
                 <x-primary-button>
-                    мда
+                    Хочу купить
                 </x-primary-button>
             </form>
             <div style="width: -webkit-fill-available; display: flex; flex-direction: column;">

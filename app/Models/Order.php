@@ -9,4 +9,8 @@ class Order extends Model
 {
     use HasFactory;
     protected $fillable = array('customer', 'track');
+
+    public function products(){
+        return $this->belongsToMany(related:Product::class,table:'orderedprods',foreignPivotKey:'order_id',relatedPivotKey:'product_id');
+    }
 }
