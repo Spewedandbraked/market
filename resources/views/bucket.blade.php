@@ -6,6 +6,5 @@
     </x-slot>
 
    {{$orderedprods}}
-   {{$orders}}
 
 </x-app-layout>

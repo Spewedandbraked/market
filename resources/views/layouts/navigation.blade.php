@@ -20,7 +20,7 @@
                         {{ __('Products') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('bucket.index', Auth::user()->id)" :active="request()->routeIs('bucket.index')">
+                    <x-nav-link :href="route('bucket.index')" :active="request()->routeIs('bucket.index')">
                         {{ __('Bucket') }}
                     </x-nav-link>
                 </div>
