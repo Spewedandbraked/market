@@ -17,17 +17,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
-Route::resources([
-    'products' => ProductController::class,
-]);
+    Route::resources([
+        'products' => ProductController::class,
+    ]);
 
-Route::controller(BucketController::class)->group(function () {
-    Route::get('/bucket', 'index')->name('bucket.index')->middleware('auth');
-    Route::post('/bucket/{Userid}/{Postid}', 'add')->name('bucket.add');
-    Route::delete('/bucket/{Userid}/{Postid}', 'remove')->name('bucket.remove');
-    /* Route::post('/orders'); */
+    Route::controller(BucketController::class)->group(function () {
+        Route::get('/bucket', 'index')->name('bucket.index');
+        Route::post('/bucket/{Userid}/{Postid}', 'add')->name('bucket.add');
+        Route::delete('/bucket/{Userid}/{Postid}', 'remove')->name('bucket.remove');
+        /* Route::post('/orders'); */
+    });
 });
 
 Route::fallback(function(){
