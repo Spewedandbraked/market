@@ -3,6 +3,7 @@
 use App\Http\Controllers\BucketController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\PermissionMiddleware;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -31,8 +32,8 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/test', function(){
-        dd(User::firstWhere(['id' => Auth::user()->id])->permissions); //выводит роли у мужика если есть
-    });
+        //dd(User::firstWhere(['id' => Auth::user()->id])->permissions); //выводит роли у мужика если есть
+    })->middleware('permission:Bucket Redaction (Full Control)');
 });
 
 Route::fallback(function(){
